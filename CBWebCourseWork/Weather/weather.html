@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <!--JavaScripts and JSON-->
+    <script src="dailyweatherdata.js"></script>
+    <script src="weatherforecast.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+    integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/778b64c721.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="weather.css">
+
+</head>
+<body>
+
+  <!-- Navagation Bar -->
+  <div class="navbar">
+      <a class="left"href="weather.html"><i class="fa-solid fa-cloud-sun"></i></i> My Weather Page</a>
+      <a href="../Publication/list.php"><i class="fa-solid fa-book"></i> Publication</a>
+      <a href="../Login/session.php"><i class="fa-solid fa-user"></i> Login</a>
+      <a href="../CV/CV.html"><i class="fa-solid fa-pen-to-square"></i> CV</a>
+      <a href="../Homepage/index.html"><i class="fa-solid fa-house"></i> Homepage</a>
+  </div>
+
+  <div class="wrapper">
+
+    <header>
+        <h1>Weather</h1>
+        <p>
+            this is weather data for
+        </p>
+        <h1 id="city-name">Stoke-on-Trent</h1>
+    </header>
+
+    <div class="chartWrapper">
+
+      <!-- Temperature Chart-->
+      <div class="charts">
+        <div class="title">
+          <h2><i class="fa-solid fa-temperature-low" id="temp-icon"></i>  Temperature °C</h2>
+          <div class="color-edit">
+            <label for="temp-colour2">Main Colour</label>
+            <input type="color" id="temp-colour2" value="#ff9d9d">
+            <label for="temp-colour1">Accent Colour</label>
+            <input type="color" id="temp-colour1" value="#ff0000">
+          </div>
+          <div class="buttons">
+            <button class="chart-type" onclick="chartType('line', tempChart, 'tempChart')">Line</button>
+            <button class="chart-type" onclick="chartType('bar', tempChart, 'tempChart')">Bar</button>
+            <button class="chart-type" onclick="chartType('pie', tempChart, 'tempChart')">Pie</button>
+          </div>
+        </div>
+        <canvas id="tempChart"></canvas>
+      </div>
+
+      <!-- Humidity Chart-->
+      <div class="charts">
+        <div class="title">
+          <h2><i class="fa-solid fa-water" id="humid-icon"></i> Humidity %</h2>
+          <div class="color-edit">
+            <label for="humid-colour2">Main Colour</label>
+            <input type="color" id="humid-colour2" value="#9aff69">
+            <label for="humid-colour1">Accent Colour</label>
+            <input type="color" id="humid-colour1" value="#50f200">
+          </div>
+          <div class="buttons">
+            <button class="chart-type" onclick="chartType('line', humidChart, 'humidChart')">Line</button>
+            <button class="chart-type" onclick="chartType('bar', humidChart, 'humidChart')">Bar</button>
+            <button class="chart-type" onclick="chartType('pie', humidChart, 'humidChart')">Pie</button>
+          </div>
+        </div>
+        <canvas id="humidChart"></canvas>
+      </div>
+
+      <!-- Wind Speed Chart-->
+      <div class="charts">
+        <div class="title">
+          <h2><i class="fa-solid fa-wind" id="wind-icon"></i> Wind Speed m/s</h2>
+          <div class="color-edit">
+            <label for="wind-colour2">Main Colour</label>
+            <input type="color" id="wind-colour2" value="#609cff">
+            <label for="wind-colour1">Accent Colour</label>
+            <input type="color" id="wind-colour1" value="#0060ff">
+          </div>
+          <div class="buttons">
+            <button class="chart-type" onclick="chartType('line', windChart, 'windChart')">Line</button>
+            <button class="chart-type" onclick="chartType('bar', windChart, 'windChart')">Bar</button>
+            <button class="chart-type" onclick="chartType('pie', windChart, 'windChart')">Pie</button>
+          </div>
+        </div>
+        <canvas id="windChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+    
+</body>
+
+<script src="charts.js"></script>
+<script>
+
+    var forecast = JSON.parse(forecast_stoke);
+
+    this.dateList = forecast.list.map(list => {
+      return list.dt_txt;
+    });
+    this.temperatureList = forecast.list.map(list => {
+      return list.main.temp;
+    });
+    this.humidityList = forecast.list.map(list => {
+      return list.main.humidity;
+    });
+    this.windList = forecast.list.map(list => {
+      return list.wind.speed;
+    });
+
+    var numOfData = 5;
+    var smallDateList = [];
+    var smallTemperatureList = [];
+    var smallHumidityList = [];
+    var smallWindList = [];
+
+    for(i = 0; i < numOfData; i++) {
+      smallDateList[i] = dateList[i].substring(0,10);
+      smallTemperatureList[i] = temperatureList[i];
+      smallHumidityList[i] = humidityList[i];
+      smallWindList[i] = windList[i];
+    }
+    
+    // default chart style
+    var defaultChartType = "line";
+  
+    
+    var ctxTemperature = document.getElementById('tempChart').getContext('2d');
+    var ctxHumidity = document.getElementById('humidChart').getContext('2d');
+    var ctxWind = document.getElementById('windChart').getContext('2d');
+
+    // Setup temperature chart
+    var tempChart = new Chart(ctxTemperature, {
+      type: defaultChartType,
+      data: {
+        labels: this.smallDateList,
+        datasets: [
+          {
+            label: "Temperature",
+            backgroundColor: colourInputTemp2.value,
+            borderColor: colourInputTemp1.value,
+            fill: false,
+            data: this.smallTemperatureList
+          }
+        ]
+      }
+    })
+
+    // Setup humidity chart
+    var humidChart = new Chart(ctxHumidity, {
+      type: defaultChartType,
+      data: {
+        labels: this.smallDateList,
+        datasets: [
+          {
+            label: "Humidity",
+            backgroundColor: colourInputHumid2.value,
+            borderColor: colourInputHumid1.value,
+            fill: false,
+            data: this.smallHumidityList
+          }
+        ]
+      }
+    })
+
+    // Setup wind speed chart
+    var windChart = new Chart(ctxWind, {
+      type: defaultChartType,
+      data: {
+        labels: this.smallDateList,
+        datasets: [
+          {
+            label: "Wind Speed",
+            backgroundColor: colourInputWind2.value,
+            borderColor: colourInputWind1.value,
+            fill: false,
+            data: this.smallWindList
+          }
+        ]
+      }
+    })
+
+    // change chart type function
+    function chartType(inputType, chartName, name) {
+      
+      if(name === "tempChart") {
+        tempChart.destroy();
+        if(inputType === "line") {
+          tempChart = new Chart(document.getElementById(name).getContext('2d'), configLine);
+        } else if(inputType === "bar") {
+          tempChart = new Chart(document.getElementById(name).getContext('2d'), configBar);
+        } else {
+          tempChart = new Chart(document.getElementById(name).getContext('2d'), configPie);
+        }
+        tempChart.config.data.datasets[0].label = "Temperature";
+        tempChart.config.data.datasets[0].backgroundColor = colourInputTemp2.value;
+        tempChart.config.data.datasets[0].borderColor = colourInputTemp1.value;
+        tempChart.config.data.datasets[0].data = smallTemperatureList;
+        tempChart.update();
+      } else if(name === "humidChart") {
+        humidChart.destroy();
+        if(inputType === "line") {
+          humidChart = new Chart(document.getElementById(name).getContext('2d'), configLine);
+        } else if(inputType === "bar") {
+          humidChart = new Chart(document.getElementById(name).getContext('2d'), configBar);
+        } else {
+          humidChart = new Chart(document.getElementById(name).getContext('2d'), configPie);
+        }
+        humidChart.config.data.datasets[0].label = "Humidity";
+        humidChart.config.data.datasets[0].backgroundColor = colourInputHumid2.value;
+        humidChart.config.data.datasets[0].borderColor = colourInputHumid1.value;
+        humidChart.config.data.datasets[0].data = smallHumidityList;
+        humidChart.update();
+      }
+      if(name === "windChart") {
+        windChart.destroy();
+        if(inputType === "line") {
+          windChart = new Chart(document.getElementById(name).getContext('2d'), configLine);
+        } else if(inputType === "bar") {
+          windChart = new Chart(document.getElementById(name).getContext('2d'), configBar);
+        } else {
+          windChart = new Chart(document.getElementById(name).getContext('2d'), configPie);
+        }
+        windChart.config.data.datasets[0].label = "Wind Speed";
+        windChart.config.data.datasets[0].backgroundColor = colourInputWind2.value;
+        windChart.config.data.datasets[0].borderColor = colourInputWind1.value;
+        windChart.config.data.datasets[0].data = smallWindList;
+        windChart.update();
+      }
+    }
+
+    // config line
+    const configLine = {
+      type: "line",
+      data: {
+        labels: this.smallDateList,
+        datasets: [
+          {
+            label: " ",
+            backgroundColor: "white",
+            borderColor: "white",
+            fill: false,
+            data: this.smallTemperatureList
+          }
+        ]
+      }
+    };
+    // config bar
+    var configBar = {
+      type: "bar",
+      data: {
+        labels: this.smallDateList,
+        datasets: [
+          {
+            label: " ",
+            backgroundColor: "white",
+            borderColor: "white",
+            fill: false,
+            data: this.smallTemperatureList
+          }
+        ]
+      }
+    };
+    // config pie
+    var configPie = {
+      type: "pie",
+      data: {
+        labels: this.smallDateList,
+        datasets: [
+          {
+            label: " ",
+            backgroundColor: "white",
+            borderColor: "white",
+            fill: false,
+            data: this.smallTemperatureList
+          }
+        ]
+      }
+    };
+    
+  </script>
+</html>

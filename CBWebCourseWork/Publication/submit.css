@@ -1,0 +1,162 @@
+html {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  :root {
+    --content-colour: rgba(0, 0, 0, 0.2);
+    --dark-colour: #333;
+    --my-font: 'Major Mono Display', monospace;
+    --my-font2: 'Roboto Mono', monospace;
+    --img-size: 200px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+  
+  .navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+  }
+  
+  .navbar a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  .navbar a.left {
+    float: left;
+  }
+  
+  .navbar a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  body {
+    background-color: var(--dark-colour);
+    background-image: url(../res/books.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: var(--my-font2);
+    font-weight: 900;
+  }
+  
+  .wrapper {
+    perspective: 1px;
+    transform-style: preserve-3d;
+  }
+  
+  
+  header{
+    min-height: 70vh;
+    padding: 20vh 0 5vw;
+    position: relative;
+    transform-style: inherit;
+    width: 100vw;
+    text-align: center;
+    color: white;
+    background-color: var(--content-colour);
+    font-family: var(--my-font2);
+    font-size: 2em;
+  }
+  
+  header  h1 {
+    margin-top: 0px;
+  }
+  
+  header, header:before {
+    background: 50% 50% / cover;
+  }
+  
+  header::before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block; 
+  
+    background-size: cover;
+    transform-origin: center center 0;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    min-height: 100vh;
+  }
+  
+  header * {
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  .content-container {
+    display: block;
+    margin: 0 100px;
+    background-color: #333;
+    border: solid;
+  }
+
+  .textbox {
+    color: white;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .btn {
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 20px;
+  }
+
+  .view {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: greenyellow;
+}
+
+#btn:hover {
+  color: white;
+  background-color: black;
+  border: solid;
+  border-color: white;
+}
+  

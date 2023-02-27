@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/778b64c721.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+    <!-- Navagation Bar -->
+    <div class="navbar">
+        <a class="left" href="index.html"><i class="fa-solid fa-house"></i> My Homepage</a>
+        <a href="../Publication/list.php"><i class="fa-solid fa-book"></i> Publication</a>
+        <a href="../Login/session.php"><i class="fa-solid fa-user"></i> Login</a>
+        <a href="../Weather/weather.html"><i class="fa-solid fa-cloud-sun"></i></i> Weather</a>
+        <a href="../CV/CV.html"><i class="fa-solid fa-pen-to-square"></i> CV</a>
+    </div>
+    
+    <div class="wrapper">
+        <header>
+            <h1>Homepage</h1>
+            <p>
+                this is my homepage.
+            </p>
+        </header>
+        
+        <!-- Homepage Description -->
+        <div class="row">
+            <div class="info">
+                <h1 class="title"><i class="fa-solid fa-house"></i> Homepage</h1><hr/>
+                <p>The homepage is the web page that serves to describe the components that make-up the web application. It includes sections which describe the other components/web pages.</p>
+            </div>
+            <div class="side">
+                <h2>Look and Feel</h2><hr/>
+                <p>
+                    The homepage sets the main look and feel of the web application which is kept consistent throughout.
+                </p>
+                <p>
+                    The main theme of the web application includes the navigation bar at the top of the page with consistent styling, including icons, layout and colours.
+                <p>
+                    Additionaly, the web pages have a static background with scrolling content.
+                </p>
+                <p>
+                    Hovering the cursor over section will make the border display which gives an interactive feel for the user.
+                </p>
+            </div>
+            <div class="main">
+                <h2>Structure</h2><hr/>
+                <p>
+                    The homepage's structure is of different sections dedicated to each component of the web application.
+                </p>
+                <p>
+                    Each section is used to describe the other web pages and also contains a link to that web page.
+                </p>
+                <p>
+                    All sections and webpages are fully responsive and resizable to accommodate different screen sizes.
+                </p>
+            </div>
+        </div>
+
+        <!-- CV Page Description -->
+        <div class="row">
+            <div class="info">
+                <h1 class="title"><i class="fa-solid fa-pen-to-square"></i> Curriculum Vitae</h1><hr/>
+                <p>This web page is comprised of a Cirriculum Vitae which is made from differnet html elements and styled using CSS. It contains no personal information.</p>
+                <a href="../CV/CV.html" class="link">Link to CV</a>
+            </div>
+            <div class="side">
+                <h2>Design</h2><hr/>
+                <p>
+                    The CV web page follows the same look and feel as the rest of the web application and is fully responsive.
+                </p>
+                <p>
+                    The CV Page is comprised of two columns. The first column contains contact information and module information.
+                    The second column provides information such as a profile summary, skills, achivements and areas of interest.
+                </p>
+            </div>
+            <div class="main">
+                <h2>Key Features</h2><hr/>
+                <p>
+                    The CV and webpage are resposive and resizable. When the cursor hoevers a section of the CV, it's borders are highlighted to give a resposive feel to the user. 
+                </p>
+                <p>
+                    Additionaly, each module listed is a clickable link that takes the user to the keele module page where they can find out more information about the spesific module. 
+                </p>
+            </div>
+        </div>
+
+        <!-- Weather Page Description -->
+        <div class="row">
+            <div class="info">
+                <h1 class="title"><i class="fa-solid fa-cloud-sun"></i> Weather Page</h1><hr/>
+                <p>This web page uses chart.js to graph weather forecast information across 5 days in Stoke-on-Trent for Temperature, Humidity and Wind Speed.</p>
+                <a href="../Weather/weather.html" class="link">Link to Weather</a>
+            </div>
+            <div class="side">
+                <h2>Design</h2><hr/>
+                <p>
+                    This web page follows the same look and feel as the rest of the web application and is fully responsive/resizbale.
+                </p>
+                <p>
+                    The web page displays three individual charts whith their own buttons and Information. These charts each show a different type of weather data, temperature, humidity and wind speed, over the course of five days.
+                </p>
+            </div>
+            <div class="main">
+                <h2>Key Features</h2><hr/>
+                <p>
+                    The color pickers show a preview of the current colours that the charts are. As the color changes, the charts colours change in real time using Java Script.
+                </p>
+                <p>
+                    Additionaly, each chart can change to a Bar char, Line chart or pie chart at the click of a button.
+                </p>
+                <p>
+                    Java Script is used for the fuctionality of the charts and data is read and stored using JSON.
+                </p>
+            </div>
+        </div>
+
+        <!--Login Page Description -->
+        <div class="row">
+            <div class="info">
+                <h1 class="title"> <i class="fa-solid fa-user"></i> Log-in Page</h1><hr/>
+                <p>This web page uses php to allow a user to log-in and out of the web application, using PHP and CSV file.</p>
+                <a href="../Login/session.php" class="link">Link to Log-in</a>
+            </div>
+            <div class="side">
+                <h2>Design</h2><hr/>
+                <p>
+                    This web page follows the same look and feel as the rest of the web application and is fully responsive/resizbale.
+                </p>
+                <p>
+                    The web page uses 3 additional PHP pages to set session values, check login details and change the content that is displayed, depending on who is logged in. For example, the users name is displayed and they are told their admin status.
+                </p>
+            </div>
+            <div class="main">
+                <h2>Key Features</h2><hr/>
+                <p>
+                    User details are kept in a file called users.csv. When a user tries to log-in, their details are compaired to the details in the CSV file.
+                </p>
+                <p>
+                    After, a user successfully logs in they then can access the secret.php page where they are told thier admin status, name and have the option to log out.
+                </p>
+                <p>
+                    Additionaly, if the logged in user is an administrator, they can also access the publication sumbission page.
+                </p>
+            </div>
+        </div>
+
+        <!--Publication Page Description -->
+        <div class="row">
+            <div class="info">
+                <h1 class="title"><i class="fa-solid fa-book"></i> Publication Page</h1><hr/>
+                <p>This web page uses PHP to store details for publications and allows an administrator to sumbit new publications.</p>
+                <a href="../Publication/list.php" class="link">Link to Publication List</a>
+            </div>
+            <div class="side">
+                <h2>Design</h2><hr/>
+                <p>
+                    The list.php page lists the titles of all the publications in the database. Each title is a clickable link that when clicked takes the user to the display.php page which shows the publication in more detail.
+                </p>
+                <p>
+                    The dislay.php page reads form the result.txt file and displays the information on the selected publication.
+                </p>
+            </div>
+            <div class="main">
+                <h2>Key Features</h2><hr/>
+                <p>
+                    The list.php page displays difernet content depending on who is logged in. If no user is logged in, it will include a link to the log-in page. 
+                </p>
+                <p>
+                    Only an administrator can access the submit.php page and make a new submission. A submission is validated via the required propperty so all fields must be filled before sumbission.
+                </p>
+                <p>
+                    New submissions are written to the result.txt file.
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

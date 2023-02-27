@@ -1,0 +1,282 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+:root {
+  --content-colour: rgba(0, 0, 0, 0.2);
+  --dark-colour: #333;
+  --my-font: 'Major Mono Display', monospace;
+  --my-font2: 'Roboto Mono', monospace;
+  --img-size: 200px;
+}
+
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 1;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a.left {
+  float: left;
+}
+
+.navbar a:hover {
+  background-color: white;
+  color: black;
+}
+
+body {
+  background-color: var(--dark-colour);
+  background-image: url(../res/pcbackground.jpg);
+  background-size: cover;
+  margin: 0;
+  padding: 0px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: var(--my-font2);
+  font-weight: 900;
+}
+
+.wrapper {
+  perspective: 1px;
+  transform-style: preserve-3d;
+}
+
+
+header{
+  min-height: 100vh;
+  padding: 30vh 0 5vw;
+  position: relative;
+  transform-style: inherit;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  background-color: var(--content-colour);
+  font-family: var(--my-font2);
+  font-size: 2em;
+}
+
+header  h1 {
+  margin-top: 0px;
+}
+
+header, header:before {
+  background: 50% 50% / cover;
+}
+
+header::before {
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block; 
+
+  background-size: cover;
+  transform-origin: center center 0;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+  min-height: 100vh;
+}
+
+header * {
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+  padding: 1em 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.cv-wrapper {
+  border-radius: 25px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding: 20px;
+}
+
+.img-box {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  display: grid;
+  min-width: var(--img-size);
+  min-height: var(--img-size);
+  max-width: var(--img-size);
+  max-height: var(--img-size);
+  background-image: url(../res/profile.jpg);
+  background-size: cover;
+  justify-content: start;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: skyblue;
+}
+
+.top-box {
+  display: flex;
+}
+
+.top-text {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-text h2 {
+  display: block;
+}
+
+.top-text h3{
+  display: block;
+}
+  
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 35px 55px rgba(0,0,0,0.1);
+}
+
+.container:hover {
+  border: solid;
+  border-color: white;
+}
+
+.container .container-left {
+  flex: 30%;
+  position: relative;
+  /*background-color: var(--dark-colour);*/
+  background-color: rgb(40, 50, 70);
+  padding: 40px;
+
+}
+
+.container .container-right {
+  flex: 70%;
+  position: relative;
+  /*background-color: rgb(143, 143, 143);*/
+  background-color: rgb(190,200,220);
+  padding: 40px;
+}
+
+.contact {
+  color: white;
+  margin: 20px;
+}
+
+.contact h2 {
+  text-align: center;
+}
+
+.contact ul li{
+  position: relative;
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+.contact ul li .icon{
+  display: inline-block;
+  width: 30px;
+  color: skyblue;
+}
+
+.contact.education li {
+  list-style-type: square;
+}
+
+.contact.education h4{
+  color: white;
+  font-weight: 900;
+}
+.contact.education li h3 a{
+  color: skyblue;
+  font-weight: 900;
+}
+
+.contact.education li h3 a:hover {
+  color: rgb(53, 53, 206);
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+}
+
+.container-right .title{
+  color: black;
+}
+
+.summary {
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 10px;
+}
+
+.information {
+  position: relative;
+  display: inline-block;
+  color: black;
+}
+
+.information h2 {
+  font-weight: 900;
+}
+
+.achivements {
+  padding-top: 10px;
+}
+
+.interest {
+  padding-top: 10px;
+}
+
+.information div{
+  margin-top: 10px;
+}
+
+.information li {
+  margin-top: 20px;
+}
+
+.about h2 {
+  text-align: center;
+}

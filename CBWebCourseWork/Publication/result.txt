@@ -1,0 +1,9 @@
+
+Publication 1,Jim Brown,2022-12-21,St John Fisher,Nature,10.1000/xyz123
+Publication 2,Marie Curie,1981-07-09,Tokyo University,Sciene,12.1040/abc123
+Publication 3,Louise Smith,2018-05-25,London School,Nature,10.1000/xyz123
+Publication 4,Ben Reed,1973-08-16,St Mary's,Chemisty,02.1000/fhu746
+Publication 5,Susan Greaves,1998-12-25,Texas University,Architechture,57.4560/kdl994
+Publication 6,Ryan Johnstone,2011-06-10,Paris University,Physics,78.1356/dhj388
+Publication 7,Samurai Jack,2004-01-21,St Joseph's,Geology,87.3630/mkl879
+Publication 8,Hikaru Nakamura,2013-06-13,MIT,Artificial Intellgence,38.2525/ajy874

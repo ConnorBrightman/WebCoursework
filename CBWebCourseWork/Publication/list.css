@@ -1,0 +1,88 @@
+html {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  :root {
+    --content-colour: rgba(0, 0, 0, 0.2);
+    --dark-colour: #333;
+    --my-font: 'Major Mono Display', monospace;
+    --my-font2: 'Roboto Mono', monospace;
+    --img-size: 200px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+  
+  .navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+  }
+  
+  .navbar a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  .navbar a.left {
+    float: left;
+  }
+  
+  .navbar a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  body {
+    background-color: aliceblue;
+    background-size: cover;
+    margin: 0;
+    padding: 0px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: var(--my-font2);
+    font-weight: 900;
+  }
+
+  .content-wrapper {
+    display: block;
+    justify-content: center;
+    margin: 50px;
+    text-align: center;
+  }
+
+  #title {
+    margin-top: 100px;
+  }
+
+  .pubs {
+    margin: auto;
+    text-align: center;
+  }
+
+  a:hover {
+    color: green;
+  }
+
+  .sub-link {
+    text-align: center;
+  }
